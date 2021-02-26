@@ -1,0 +1,31 @@
+
+plugins {
+    
+    id "org.joinfaces" version "4.3.4"
+    id "io.freefair.lombok" version "5.3.0"
+}
+apply plugin: 'java'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+apply plugin: "io.freefair.lombok"
+repositories {
+  
+    jcenter()
+}
+java {
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
+}
+dependencies {
+    compile "org.joinfaces:jsf-spring-boot-starter"
+	
+    compile group: 'org.springframework.boot', name: 'spring-boot-devtools', version: '2.3.4.RELEASE'
+
+    compile group: 'org.joinfaces', name: 'bootsfaces-spring-boot-starter'
+    //Necesario para manejar View controller
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.3.4.RELEASE'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	
+    runtimeOnly 'org.postgresql:postgresql'
+    compile group: 'org.joinfaces', name: 'primefaces-spring-boot-starter', version: '4.4.2'
+}
